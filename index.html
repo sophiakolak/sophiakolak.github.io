@@ -18,11 +18,174 @@
             hello: function(what) {
                 this.echo('Hello, ' + what +
                           '. Welcome to the website of Sophia Kolak.');
-            }
+            },
+            echo: function(what) {
+                this.echo(what);
+            },
+            clear: function() {
+                this.clear();
+            },
+            ls: function() {
+                const options = ['about', 'projects', 'resume'];
+                this.echo(options);
+            },
+            about: function() {
+                const description = ' I am a second year PhD student in software engineering at Carnegie Mellon,'
+                const description2 = '   interested in machine learning, software engineering, and NLP'
+                const name = ' Sophia Kolak';
+                const email = '  sophiakolak@cmu.edu';
+                const github = ' https://github.com/sophiakolak';
+                this.echo('{\n' + "\t" + '"name":' + name);
+                this.echo('\t' + '"description:"' + description + '\n\t\t\t\t' + description2);
+                this.echo("\t" + '"email":' + email);
+                this.echo("\t" + '"github":' + github + '\n}');
+            },
+            projects: function() {
+                const proj = ['AI4Code', 'AIart', 'Robotics']
+                this.echo(proj);
+            },
+            AI4Code: function() {
+
+                var patch_gen = {
+                    "title": 'Patch Generation with Large Language Models: Feasability and Scaling Behavior',
+                    "authors": 'Sophia Kolak, Ruben Martins, Claire Le Goues, Vincent Hellendoorn',
+                    "conference": 'ICLR 2022, DL4C Workshop',
+                    "pdf": 'https://openreview.net/pdf?id=rHlzJh_b1-5',
+                    "github": 'https://github.com/sophiakolak/patch-gen'
+                }
+
+                this.echo('{\n' + "\t" + '"title": ' + patch_gen.title);
+                this.echo("\t" + '"authors": ' + patch_gen.authors);
+                this.echo("\t" + '"conference": ' + patch_gen.conference);
+                this.echo("\t" + '"pdf": ' + patch_gen.pdf);
+                this.echo("\t" + '"github": ' + patch_gen.github + '\n}');
+
+                var perf_patterns = {
+                    "title": 'Detecting Performance Patterns with Deep Learning',
+                    "authors": 'Sophia Kolak',
+                    "conference": 'SPLASH 2020',
+                    "pdf": "https://dl.acm.org/doi/10.1145/3426430.3428132",
+                    "github": 'https://github.com/sophiakolak/perf-patterns-dw'
+                }
+
+                this.echo('{\n' + "\t" + '"title": ' + perf_patterns.title);
+                this.echo("\t" + '"authors": ' + perf_patterns.authors);
+                this.echo("\t" + '"conference": ' + perf_patterns.conference);
+                this.echo("\t" + '"pdf": ' + perf_patterns.pdf);
+                this.echo("\t" + '"github": ' + perf_patterns.github + '\n}');
+                
+            },
+
+            AIart: function() {
+                mv_img_path = 'images/cover.png';
+                const img = $('<img src="' + mv_img_path + '" width="200" height="100" style="margin-left:50px;"> ', {raw: true});
+
+                var aiart = {
+                    "title": 'VQGAN+CLIP: Slept in again', 
+                    "description": 'A music video created using VQGAN+CLIP, with lyrics by GPT-3',
+                    "link": 'https://www.youtube.com/watch?v=ICepRQPOEZo',
+                    "img": img
+                }
+
+                this.echo('{\n' + "\t" + '"title": ' + aiart.title);
+                this.echo("\t" + '"description": ' + aiart.description);
+                this.echo("\t" + '"link": ' + aiart.link);
+                this.echo(img);
+                this.echo('}');
+
+                lyrai_img_path = 'images/lyrai.png';
+                const img2 = $('<img src="' + lyrai_img_path + '" width="200" height="100" style="margin-left:50px;"> ', {raw: true});
+
+                var lyraics = {
+                    "title": 'LyrAIcs',
+                    "description": 'a GPT-3 powered songwriting tool',
+                    "link": 'https://github.com/sophiakolak/LyrAIcs',
+                    'img' : img2
+                }
+
+                this.echo('{\n' + "\t" + '"title": ' + lyraics.title);
+                this.echo("\t" + '"description": ' + lyraics.description);
+                this.echo("\t" + '"link": ' + lyraics.link);
+                this.echo(img2);
+                this.echo('}');
+                
+                
+            },
+
+            Robotics: function() {
+                const intro = "During undergrad, I studied ROS (Robot Operating System) software, and conducted"
+                const intro2 = "the first empirical study of the ecosystem, which led to the following:\n"
+                
+                var ROS_paper = {
+                    "paper" : 'It Takes a Village to Build a Robot: An Empirical Study of the ROS Ecosystem',
+                    "authors": 'Sophia Kolak, Afsoon Afzal, Claire Le Goues, Michael Hilton, Chris Timperley',
+                    "conference": 'ICSME 2020',
+                    "pdf": 'https://ieeexplore.ieee.org/document/9240632'
+                }
+
+                roscon_img_path = 'images/roscon.png';
+                const img = $('<img src="' + roscon_img_path + '" width="200" height="100" style="margin-left:50px;"> ', {raw: true});
+
+                var ROS_talk = {
+                    "talk": "It Takes a Village to Build a Robot: Collaboration in ROS",
+                    "conference": 'ROSCon 2019',
+                    "link": 'https://vimeo.com/378682826',
+                    'img' : img
+                }
+
+                podcast_img_path = 'images/podcast.jpg';
+                const img2 = $('<img src="' + podcast_img_path + '" width="200" height="100" style="margin-left:50px;"> ', {raw: true});
+
+                var ROS_podcast = {
+                    "interview": 'ROS Developers Podcast, Episode 88',
+                    "link": 'https://www.theconstructsim.com/88-it-takes-a-village-to-build-a-ros-robot-with-sophia-kolak/',
+                    "img" : img2
+                }
+
+                rosworld_img_path = 'images/rosworld.png';
+                const img3 = $('<img src="' + rosworld_img_path + '" width="200" height="100" style="margin-left:50px;"> ', {raw: true});
+                
+                var ROS_world = {
+                    "invited talk": 'Software Quality in Robotics',
+                    "conference": 'ROS World 2020',
+                    "link": 'https://vimeo.com/480586443'
+                }
+
+                this.echo('\n' + intro);
+                this.echo(intro2);
+                this.echo("{\t" + '"paper": ' + ROS_paper.paper);
+                this.echo("\t" + '"authors": ' + ROS_paper.authors);
+                this.echo("\t" + '"conference": ' + ROS_paper.conference);
+                this.echo("\t" + '"pdf": ' + ROS_paper.pdf + "\n}");
+                this.echo("{\t" + '"talk": ' + ROS_talk.talk);
+                this.echo("\t" + '"conference": ' + ROS_talk.conference);
+                this.echo("\t" + '"link": ' + ROS_talk.link);
+                this.echo(img);
+                this.echo('}');
+                this.echo("{\t" + '"interview": ' + ROS_podcast.interview);
+                this.echo("\t" + '"link": ' + ROS_podcast.link);
+                this.echo(img2);
+                this.echo('}');
+                this.echo("{\t" + '"invited talk": ' + ROS_world['invited talk']);
+                this.echo("\t" + '"conference": ' + ROS_world.conference);
+                this.echo("\t" + '"link": ' + ROS_world.link);
+                this.echo(img3);
+                this.echo('}');
+
+            },
+
+            resume: function() {
+                resume_path = 'files/cv.pdf';
+                const resume = $('<a href="' + resume_path + '" target="_blank">resume</a>', {raw: true});
+                this.echo('In case you have pop-ups disabled: ');
+                this.echo(resume);
+                window.open(resume_path, '_blank');
+
+
+            },
+
         }, {
-            greetings: "loading: https://sophiakolak.github.io ...",
-            
-            
+            greetings: 'Welcome to the website of Sophia Kolak. Type "ls" to see the available options.',
         });
         </script>
     </div>
