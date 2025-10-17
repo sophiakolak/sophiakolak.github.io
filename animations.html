@@ -104,7 +104,8 @@
     <img src="animations/Gordon.gif" alt="Gordon animation" data-src="animations/Gordon.gif">
     <img src="animations/Matilda.gif" alt="Matilda animation" data-src="animations/Matilda.gif">
     <img src="animations/CreditsCredits.gif" alt="Credits animation" data-src="animations/CreditsCredits.gif">
-    <video src="animations/Andre.mov" muted playsinline></video>
+    <!-- Use video tag for .mov -->
+    <video src="animations/Andre.mov" muted playsinline preload="metadata" data-src="animations/Andre.mov" type="video/quicktime"></video>
   </div>
 
   <!-- Modal Viewer -->
@@ -120,7 +121,6 @@
     const modalVid = document.getElementById("modalVideo");
     const close = document.getElementsByClassName("close")[0];
 
-    // open viewer
     document.querySelectorAll('.gallery img, .gallery video').forEach(el => {
       el.addEventListener('click', () => {
         const src = el.getAttribute('data-src') || el.getAttribute('src');
@@ -128,8 +128,9 @@
           modalImg.style.display = "none";
           modalVid.style.display = "block";
           modalVid.src = src;
-          modalVid.play();
+          modalVid.play().catch(() => console.log("autoplay blocked"));
         } else {
+          modalVid.pause();
           modalVid.style.display = "none";
           modalImg.style.display = "block";
           modalImg.src = src;
@@ -153,7 +154,7 @@
     }
   </script>
 
-  <!-- placeholder for future section -->
   <h2>CSS Animations — Coming Soon ✨</h2>
 </body>
 </html>
+
